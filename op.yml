@@ -39,20 +39,29 @@ inputs:
         custom: Create subnets manually.
         legacy: Create an old style network that has a range and cannot have subnets. This is not recommended for new vpc's"
       constraints: {enum: [ auto, custom, legacy ]}
-name: github.com/opspec-pkgs/gcp.vpc.create
+name: github.com/opspec-pkgs/gcp.compute.networks.create
 opspec: 0.1.6
 run:
-  container:
-    image: { ref: 'google/cloud-sdk:229.0.0-alpine' }
-    files:
-      /cmd.sh:
-      /keyFile: $(keyFile)
-    cmd: [ /cmd.sh ]
-    envVars:
-      bgpRoutingMode:
-      description:
-      name:
-      projectId:
-      range:
-      subnetMode:
+  serial:
+    # ensure service enabled
+    - op:
+        ref: github.com/opspec-pkgs/gcp.services.enable#1.0.0
+        inputs:
+          keyFile:
+          projectId:
+          service: compute.googleapis.com
+    - container:
+        image: { ref: 'google/cloud-sdk:229.0.0-alpine' }
+        files:
+          /cmd.sh:
+          /keyFile: $(keyFile)
+        cmd: [ /cmd.sh ]
+        envVars:
+          CLOUDSDK_CORE_PROJECT: $(projectId)
+          CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+          bgpRoutingMode:
+          description:
+          name:
+          range:
+          subnetMode:
 version: 1.0.0

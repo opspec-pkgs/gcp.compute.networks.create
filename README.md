@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/gcp.vpc.create.svg?branch=master)](https://travis-ci.org/opspec-pkgs/gcp.vpc.create)
+[![Build Status](https://travis-ci.org/opspec-pkgs/gcp.compute.networks.create.svg?branch=master)](https://travis-ci.org/opspec-pkgs/gcp.compute.networks.create)
+
+<img src="icon.svg" alt="icon" height="100px">
 
 # Problem statement
 
@@ -13,20 +15,20 @@ the op uses [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgre
 ## Install
 
 ```shell
-opctl op install github.com/opspec-pkgs/gcp.vpc.create#1.0.0
+opctl op install github.com/opspec-pkgs/gcp.compute.networks.create#1.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/gcp.vpc.create#1.0.0
+opctl run github.com/opspec-pkgs/gcp.compute.networks.create#1.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/gcp.vpc.create#1.0.0
+  ref: github.com/opspec-pkgs/gcp.compute.networks.create#1.0.0
   inputs:
     # required
     keyFile:
@@ -44,7 +46,7 @@ op:
 join us on
 [![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
 or
-[open an issue](https://github.com/opspec-pkgs/gcp.vpc.create/issues)
+[open an issue](https://github.com/opspec-pkgs/gcp.compute.networks.create/issues)
 
 # Releases
 
